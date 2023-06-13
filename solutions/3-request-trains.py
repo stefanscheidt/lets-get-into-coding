@@ -1,11 +1,7 @@
 #! python3
 
-import requests
-
-response = requests.get("http://127.0.0.1:8080/train-data/trains")
-
-response.raise_for_status()
+from train_reservation_api import get_trains
 
 print("Trains:")
-for train in response.json():
-    print(f"- {train}")
+for train in get_trains("http://localhost:8080"):
+    print(f"> {train}")
